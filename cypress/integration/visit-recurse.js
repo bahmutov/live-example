@@ -24,5 +24,11 @@ it('uses cypress-recurse', () => {
       log: false
     }
   )
+    // the "recurse" yields whatever
+    // the first function yields, in our case
+    // it is the { response } object. Let's grab its text
+    .its('response')
+    .invoke('text')
+    .then(console.log)
   cy.visit('/')
 })
